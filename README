@@ -1,0 +1,28 @@
+C common utility code.
+--------------------------------------------------------------------------------
+
+List
+--------------------------------------------------------------------------------
+A doubly-linked circular list.
+
+Example:
+
+//the list_link macro must always be the first
+//thing in a structure you want to link.
+struct test {
+    list_link;
+    char somedata;
+};
+
+struct test* a = malloc(sizeof(*a)*4);
+list_init(a);
+list_insert(a, a+1);
+list_insert(a+1, a+2);
+
+//Iterating:
+struct test* i=a;
+do {
+    do_something(i->somedata);
+    i = list_next(i);
+}while(a != i);
+
