@@ -26,3 +26,20 @@ do {
     i = list_next(i);
 }while(a != i);
 
+Array
+--------------------------------------------------------------------------------
+Dynamic array of pointers.
+
+struct test hi, hai, hello;
+
+struct array* lol = array_create(1);
+array_append(lol, &hi);
+array_append(lol, &hai);
+array_insert(lol, 1, &hello);
+
+//lol: [hi, hello, hai]
+
+for(int i=0; i<array_count(lol); i++)
+	do_something(array_at(lol, i));
+
+
